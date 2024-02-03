@@ -228,12 +228,22 @@ app.get('/teacher/:username', async (req, res) => {
   }
 });
 
-app.get('/request', (req, res) => {
+app.get('/request/:requested', (req, res) => {
   if (req.isAuthenticated() && req.user.type === 'student') {
-    // res.sendFile(path.join(__dirname, 'public', 'request.html'));
+    const teacher = req.query.r
+    const student = req.user.email
+
+    studentFuncs.createRequest(teacher, student)
+    res.status(200).json({message: 'Request sent'})
   } else if (req.isAuthenticated() && req.user.type === 'teacher') {
-    // res.sendFile(path.join(__dirname, 'public', 'requests.html'));
-    
+    const teacher = req.user.email
+    const student = req.query.r
+
+
+
+    teacherFuncs.handleRequestResponse(teacher, req.query.resp, student)
+    res.status(200).json({message: 'Request handled'})
+
   } else {
     res.status(403).json({ error: 'Forbidden' });
   }
