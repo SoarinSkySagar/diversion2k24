@@ -21,9 +21,11 @@ app.use(passport.initialize())
 app.use(passport.session())
 app.use(bodyParser.urlencoded({extended: true}))
 
-app.get('/', (req, res) => {
-    res.sendFile(path.join(__dirname, 'public', 'index.html'))
-})
+app.use(express.static(path.join(__dirname, 'build')));
+
+// app.get('/', (req, res) => {
+//     res.sendFile(path.join(__dirname, 'public', 'index.html'))
+// })
 
 app.post('/new', async (req, res) => {
   const { email, password } = req.body;
@@ -219,6 +221,7 @@ app.get('/teacher/:username', async (req, res) => {
       } else {
         res.status(404).json({ error: 'Teacher not found' });
       }
+
     } else {
       res.status(403).json({ error: 'Forbidden' });
     }
@@ -250,6 +253,10 @@ app.get('/request/:requested', (req, res) => {
 })
 
 const chatRouter = require('./routes/chat.router')
+
+app.get('/*', (req, res) => {
+  res.sendFile(path.join(__dirname, 'build', 'index.html'))
+})
 
 app.use('/', chatRouter)
 

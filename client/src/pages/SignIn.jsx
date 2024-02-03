@@ -24,12 +24,6 @@ export default function SignIn() {
   async function onSubmit(e) {
     e.preventDefault();
     try {
-      //   const auth = getAuth();
-      //   const userCredential = await signInWithEmailAndPassword(
-      //     auth,
-      //     email,
-      //     password
-      //   );
       toast.success("Sign-In was Successful!", {
         position: "bottom-center",
         autoClose: 5000,
@@ -134,6 +128,9 @@ export default function SignIn() {
             <button
               type="button"
               className="w-full flex items-center justify-center px-4 py-2 text-xl text-white bg-black rounded-xl border-none shadow-lg hover:text-black hover:bg-white transition duration-200 ease-in-out"
+              onClick={() => {
+                window.location.href = 'http://localhost:5000/auth/google'
+              }}
             >
               <FcGoogle className="mr-2" />
               Continue with Google

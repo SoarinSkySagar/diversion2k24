@@ -22,7 +22,7 @@ authRouter.get('/google/callback', passport.authenticate('google', { failureRedi
 
 authRouter.post('/email',
   passport.authenticate('local', {
-    successRedirect: '/dashboard',
+    successRedirect: '/',
     failureRedirect: '/auth/failure',
     failureFlash: true,
     successFlash: 'Welcome!',

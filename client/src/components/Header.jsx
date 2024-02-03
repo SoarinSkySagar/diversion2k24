@@ -49,7 +49,7 @@ export default function Header() {
                   ? "text-black border-b-red-600"
                   : "text-gray-500 border-b-transparent"
               }`}
-              onClick={() => navigate("/Sign-In")}
+              onClick={() => navigate("/auth")}
             >
               {pageState}
             </li>

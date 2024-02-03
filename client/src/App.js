@@ -12,7 +12,7 @@ function App() {
       <Header />
         <Routes>
           <Route path="/" element={<Home />}></Route>
-          <Route path="/Sign-In" element={<SignIn />}></Route>
+          <Route path="/auth" element={<SignIn />}></Route>
           <Route path="/Sign-Up" element={<SignUp />}></Route>
           <Route path="/Forgot-Password" element={<ForgotPassword />}></Route>
         </Routes>
@@ -21,4 +21,4 @@ function App() {
   );
 }
 
-export default App;
+export default App
