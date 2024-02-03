@@ -42,6 +42,14 @@ const Student = new mongoose.Schema({
         type: [String],
         default: [],
     },
+    requests: {
+        type: [String],
+        default: [],
+    }, 
+    teachers: {
+        type: [String],
+        default: [],
+    }
 });
 
 const studentModel = mongoose.model('Student', Student);

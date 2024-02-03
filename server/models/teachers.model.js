@@ -1,6 +1,7 @@
 const teacherModel = require('./teachers.mongo')
 const bcrypt = require('bcrypt')
-const {getEmailUsername} = require('../services/userid')
+const {getEmailUsername} = require('../services/userid');
+const studentModel = require('./students.mongo');
 
 async function teacherEmailExists(email) {
     try {
@@ -211,6 +212,76 @@ async function getTDmsByUsername(username) {
   }
 }
 
+async function getRequestsByEmail(teacherEmail) {
+  try {
+      const teacher = await teacherModel.findOne({ email: teacherEmail });
+      if (!teacher) {
+          throw new Error('Teacher not found');
+      }
+
+      const requests = teacher.requests || [];
+      return requests;
+  } catch (error) {
+      console.error('Error getting requests:', error);
+      throw error;
+  }
+}
+
+async function handleRequestResponse(teacherEmail, response, requestName) {
+  try {
+      const teacher = await teacherModel.findOne({ email: teacherEmail });
+      if (!teacher) {
+          throw new Error('Teacher not found');
+      }
+
+      const { requests, students } = teacher;
+
+      const requestIndex = requests.indexOf(requestName);
+      if (requestIndex === -1) {
+          throw new Error('Request not found for the teacher');
+      }
+
+      const teacherIndex = requests.indexOf(teacherEmail);
+      if (teacherIndex === -1) {
+          throw new Error('Teacher not found for the request');
+      }
+      if (requestIndex === -1) {
+          throw new Error('Request not found for the teacher');
+      }
+
+      requests.splice(requestIndex, 1);
+      const student = await studentModel.findOne({email: requestName})
+      students.requests.splice(teacherIndex, 1)
+      if (response) {
+          students.push(requestName);
+          student.teachers.push(teacherEmail)
+      }
+
+      await teacher.save();
+      await student.save();
+
+      console.log('Request response handled successfully.');
+  } catch (error) {
+      console.error('Error handling request response:', error);
+      throw error;
+  }
+}
+
+async function getStudentsList(teacherEmail) {
+  try {
+      const teacher = await teacherModel.findOne({ email: teacherEmail });
+      if (!teacher) {
+          throw new Error('Teacher not found');
+      }
+
+      const students = teacher.students || [];
+      return students;
+  } catch (error) {
+      console.error('Error getting requests:', error);
+      throw error;
+  }
+}
+
 module.exports = {
   teacherEmailExists,
   registerTeacher,
@@ -223,5 +294,8 @@ module.exports = {
   getTeacherByID,
   addRoomToTDms,
   getTDmsByUsername,
-  teacherIDExists
+  teacherIDExists,
+  getRequestsByEmail,
+  getStudentsList,
+  handleRequestResponse
 };

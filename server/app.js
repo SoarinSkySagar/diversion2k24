@@ -228,6 +228,17 @@ app.get('/teacher/:username', async (req, res) => {
   }
 });
 
+app.get('/request', (req, res) => {
+  if (req.isAuthenticated() && req.user.type === 'student') {
+    // res.sendFile(path.join(__dirname, 'public', 'request.html'));
+  } else if (req.isAuthenticated() && req.user.type === 'teacher') {
+    // res.sendFile(path.join(__dirname, 'public', 'requests.html'));
+    
+  } else {
+    res.status(403).json({ error: 'Forbidden' });
+  }
+})
+
 const chatRouter = require('./routes/chat.router')
 
 app.use('/', chatRouter)
