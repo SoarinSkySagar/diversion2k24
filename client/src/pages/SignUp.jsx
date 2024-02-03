@@ -1,20 +1,27 @@
-import React, { useState } from "react";
-import { AiOutlineEyeInvisible, AiOutlineEye } from "react-icons/ai";
+import { useState } from "react";
+import { AiOutlineEye, AiOutlineEyeInvisible } from "react-icons/ai";
 import { Link } from "react-router-dom";
 // import OAuth from "../components/OAuth";
-// import { signInWithEmailAndPassword, getAuth } from "firebase/auth";
+// import {
+//   getAuth,
+//   createUserWithEmailAndPassword,
+//   updateProfile,
+// } from "firebase/auth";
+// import { db } from "../firebase";
+// import { doc, serverTimestamp, setDoc } from "firebase/firestore";
+import { useNavigate } from "react-router-dom";
 import { toast } from "react-toastify";
 import { FcGoogle } from "react-icons/fc";
 
-export default function SignIn() {
+export default function SignUp() {
   const [showPassword, setShowPassword] = useState(false);
   const [formData, setFormData] = useState({
+    name: "",
     email: "",
     password: "",
   });
-
-  const { email, password } = formData;
-  //   const navigate = useNavigate();
+  const { name, email, password } = formData;
+  const navigate = useNavigate();
   function onChange(e) {
     setFormData((prevState) => ({
       ...prevState,
@@ -23,14 +30,25 @@ export default function SignIn() {
   }
   async function onSubmit(e) {
     e.preventDefault();
+
     try {
-      //   const auth = getAuth();
-      //   const userCredential = await signInWithEmailAndPassword(
-      //     auth,
-      //     email,
-      //     password
-      //   );
-      toast.success("Sign-In was Successful!", {
+    //   const auth = getAuth();
+    //   const userCredential = await createUserWithEmailAndPassword(
+    //     auth,
+    //     email,
+    //     password
+    //   );
+
+    //   updateProfile(auth.currentUser, {
+    //     displayName: name,
+    //   });
+    //   const user = userCredential.user;
+      const formDataCopy = { ...formData };
+      delete formDataCopy.password;
+    //   formDataCopy.timestamp = serverTimestamp();
+
+    //   await setDoc(doc(db, "users", user.uid), formDataCopy);
+      toast.success("Registration was Successful!", {
         position: "bottom-center",
         autoClose: 5000,
         hideProgressBar: false,
@@ -40,11 +58,9 @@ export default function SignIn() {
         progress: undefined,
         theme: "dark",
       });
-      //   if (userCredential.user) {
-      //     navigate("/");
-      //   }
+      navigate("/");
     } catch (error) {
-      toast.error("Bad user credentials", {
+      toast.error("Registration was Unsuccessful", {
         position: "bottom-center",
         autoClose: 5000,
         hideProgressBar: false,
@@ -56,9 +72,10 @@ export default function SignIn() {
       });
     }
   }
+
   return (
     <section>
-      <h1 className="text-3xl text-center mt-6 font-bold mb-20">Sign In</h1>
+      <h1 className="text-3xl text-center mt-6 font-bold mb-20">Sign Up</h1>
       <div className="flex justify-center flex-wrap items-center max-w-6xl m-auto px-6 py-12">
         <div className="md:w-[67%] md:mb-6 lg:w-[50%] mb-12">
           <img
@@ -67,9 +84,17 @@ export default function SignIn() {
             className="w-full rounded-2xl"
           />
         </div>
-        <div className="w-full md:w-[67%] lg:w-[40%] lg:ml-20">
+        <div className="w-full md:w-[67%] lg:w-[40%] lg:ml-20 lg:-mt-6">
           <form onSubmit={onSubmit}>
             <div className="mb-4">
+              <input
+                type="text"
+                id="name"
+                value={name}
+                onChange={onChange}
+                placeholder="Name"
+                className="w-full mb-4 px-4 py-2 text-xl text-gray-600 bg-white rounded-xl border-none transition ease-in-out"
+              />
               <input
                 type="email"
                 id="email"
@@ -104,12 +129,12 @@ export default function SignIn() {
             </div>{" "}
             <div className="flex justify-between font-medium whitespace-nowrap text-sm sm:text-base mb-4">
               <p>
-                Don't have an Account?
+                Already have an Account?
                 <Link
-                  to="/Sign-Up"
+                  to="/Sign-In"
                   className=" text-white ml-1 hover:text-black transition duration-200 ease-in-out"
                 >
-                  Register
+                  Sign In
                 </Link>
               </p>
               <p>
@@ -125,7 +150,7 @@ export default function SignIn() {
               type="submit"
               className="w-full px-4 py-2 text-xl text-white bg-black rounded-xl border-none shadow-lg hover:text-black hover:bg-white transition duration-200 ease-in-out"
             >
-              SIGN IN
+              SIGN UP
             </button>
             <div className=" flex items-center my-4 before:border-t before:flex-1 before:border-white after:border-t after:flex-1 after:border-white">
               <p className=" text-center font-semibold mx-4">OR</p>

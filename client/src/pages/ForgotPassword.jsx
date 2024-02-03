@@ -1,36 +1,24 @@
-import React, { useState } from "react";
-import { AiOutlineEyeInvisible, AiOutlineEye } from "react-icons/ai";
+// import { getAuth, sendPasswordResetEmail } from "firebase/auth";
+import { useState } from "react";
 import { Link } from "react-router-dom";
-// import OAuth from "../components/OAuth";
-// import { signInWithEmailAndPassword, getAuth } from "firebase/auth";
 import { toast } from "react-toastify";
+// import OAuth from "../components/OAuth";
+import { useNavigate } from "react-router-dom";
 import { FcGoogle } from "react-icons/fc";
 
-export default function SignIn() {
-  const [showPassword, setShowPassword] = useState(false);
-  const [formData, setFormData] = useState({
-    email: "",
-    password: "",
-  });
-
-  const { email, password } = formData;
-  //   const navigate = useNavigate();
+export default function ForgotPassword() {
+  const [email, setEmail] = useState("");
+  const navigate = useNavigate();
   function onChange(e) {
-    setFormData((prevState) => ({
-      ...prevState,
-      [e.target.id]: e.target.value,
-    }));
+    setEmail(e.target.value);
   }
+
   async function onSubmit(e) {
     e.preventDefault();
     try {
       //   const auth = getAuth();
-      //   const userCredential = await signInWithEmailAndPassword(
-      //     auth,
-      //     email,
-      //     password
-      //   );
-      toast.success("Sign-In was Successful!", {
+      //   await sendPasswordResetEmail(auth, email);
+      toast.success("Email was sent", {
         position: "bottom-center",
         autoClose: 5000,
         hideProgressBar: false,
@@ -40,11 +28,9 @@ export default function SignIn() {
         progress: undefined,
         theme: "dark",
       });
-      //   if (userCredential.user) {
-      //     navigate("/");
-      //   }
+      navigate("/Sign-In");
     } catch (error) {
-      toast.error("Bad user credentials", {
+      toast.error("Could not send reset password", {
         position: "bottom-center",
         autoClose: 5000,
         hideProgressBar: false,
@@ -56,9 +42,10 @@ export default function SignIn() {
       });
     }
   }
+
   return (
     <section>
-      <h1 className="text-3xl text-center mt-6 font-bold mb-20">Sign In</h1>
+      <h1 className="text-3xl text-center mt-6 font-bold mb-20">Forgot Password</h1>
       <div className="flex justify-center flex-wrap items-center max-w-6xl m-auto px-6 py-12">
         <div className="md:w-[67%] md:mb-6 lg:w-[50%] mb-12">
           <img
@@ -67,7 +54,7 @@ export default function SignIn() {
             className="w-full rounded-2xl"
           />
         </div>
-        <div className="w-full md:w-[67%] lg:w-[40%] lg:ml-20">
+        <div className="w-full md:w-[67%] lg:w-[40%] lg:ml-20 lg:-mt-6">
           <form onSubmit={onSubmit}>
             <div className="mb-4">
               <input
@@ -79,29 +66,7 @@ export default function SignIn() {
                 className="w-full px-4 py-2 text-xl text-gray-600 bg-white rounded-xl border-none transition ease-in-out"
               />
             </div>
-            <div className="mb-4">
-              <div className="relative">
-                <input
-                  type={showPassword ? "text" : "password"}
-                  id="password"
-                  value={password}
-                  onChange={onChange}
-                  placeholder="Password"
-                  className="w-full px-4 py-2 text-xl text-gray-600 bg-white rounded-xl border-none transition ease-in-out"
-                />
-                {showPassword ? (
-                  <AiOutlineEye
-                    className="absolute right-3 top-2 text-3xl cursor-pointer"
-                    onClick={() => setShowPassword((prevState) => !prevState)}
-                  />
-                ) : (
-                  <AiOutlineEyeInvisible
-                    className="absolute right-3 top-2 text-3xl cursor-pointer"
-                    onClick={() => setShowPassword((prevState) => !prevState)}
-                  />
-                )}
-              </div>
-            </div>{" "}
+
             <div className="flex justify-between font-medium whitespace-nowrap text-sm sm:text-base mb-4">
               <p>
                 Don't have an Account?
@@ -114,10 +79,10 @@ export default function SignIn() {
               </p>
               <p>
                 <Link
-                  to="/Forgot-Password"
+                  to="/Sign-In"
                   className=" text-white hover:text-black transition duration-200 ease-in-out"
                 >
-                  Forgot Password?
+                  Sign In instead
                 </Link>
               </p>
             </div>
@@ -125,7 +90,7 @@ export default function SignIn() {
               type="submit"
               className="w-full px-4 py-2 text-xl text-white bg-black rounded-xl border-none shadow-lg hover:text-black hover:bg-white transition duration-200 ease-in-out"
             >
-              SIGN IN
+              RESET PASSWORD
             </button>
             <div className=" flex items-center my-4 before:border-t before:flex-1 before:border-white after:border-t after:flex-1 after:border-white">
               <p className=" text-center font-semibold mx-4">OR</p>
