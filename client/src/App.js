@@ -7,6 +7,8 @@ import Profile from "./pages/Profile";
 import Header from "./components/Header";
 import StudentDetails from "./pages/StudentDetails";
 import TeacherDetails from "./pages/TeacherDetails";
+import SelectPage from "./pages/SelectPage";
+import Dashboard from "./pages/Dashboard";
 
 function App() {
   return (
@@ -21,6 +23,12 @@ function App() {
           <Route path="/StudentDetails" element={<StudentDetails />}></Route>
           <Route path="/Profile" element={<Profile />}></Route>
           <Route path="/Forgot-Password" element={<ForgotPassword />}></Route>
+          <Route path="/select" element={<SelectPage/>}></Route>
+          <Route path="/signup" element={<SignUp />}></Route>
+          <Route path="/profile" element={<Profile />}></Route>
+          <Route path="/fgt" element={<ForgotPassword />}></Route>
+          <Route path="/dash" element={<Dashboard/>}></Route>
+          <Route path="/select" element={<SelectPage/>}></Route>
         </Routes>
       </Router>
     </>

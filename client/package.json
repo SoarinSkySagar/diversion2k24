@@ -18,7 +18,7 @@
     "web-vitals": "^2.1.4"
   },
   "scripts": {
-    "build-dev": "BUILD_PATH=../server/public react-scripts build",
+    "build-dev": "BUILD_PATH=../server/build react-scripts build",
     "start": "react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test",

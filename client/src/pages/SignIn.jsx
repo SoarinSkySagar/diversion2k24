@@ -62,7 +62,7 @@ export default function SignIn() {
           />
         </div>
         <div className="w-full md:w-[67%] lg:w-[40%] lg:ml-20">
-          <form onSubmit={onSubmit}>
+          <form action="/auth/email" method="post">
             <div className="mb-4">
               <input
                 type="email"
@@ -70,6 +70,7 @@ export default function SignIn() {
                 value={email}
                 onChange={onChange}
                 placeholder="Email"
+                name="email"
                 className="w-full px-4 py-2 text-xl text-gray-600 bg-white rounded-xl border-none transition ease-in-out"
               />
             </div>
@@ -81,6 +82,7 @@ export default function SignIn() {
                   value={password}
                   onChange={onChange}
                   placeholder="Password"
+                  name="password"
                   className="w-full px-4 py-2 text-xl text-gray-600 bg-white rounded-xl border-none transition ease-in-out"
                 />
                 {showPassword ? (
