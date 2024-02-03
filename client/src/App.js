@@ -24,6 +24,7 @@ function App() {
           <Route path="/profile" element={<Profile />}></Route>
           <Route path="/fgt" element={<ForgotPassword />}></Route>
           <Route path="/dash" element={<Dashboard/>}></Route>
+          <Route path="/select" element={<SelectPage/>}></Route>
         </Routes>
       </Router>
     </>
