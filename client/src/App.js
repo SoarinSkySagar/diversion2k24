@@ -9,6 +9,7 @@ import StudentDetails from "./pages/StudentDetails";
 import TeacherDetails from "./pages/TeacherDetails";
 import SelectPage from "./pages/SelectPage";
 import Dashboard from "./pages/Dashboard";
+import Explore from "./pages/Explore";
 
 function App() {
   return (
@@ -31,6 +32,7 @@ function App() {
           <Route path="/select" element={<SelectPage/>}></Route>
           <Route path="/supdate" element={<StudentDetails/>}></Route>
           <Route path="/tupdate" element={<TeacherDetails/>}></Route>
+          <Route path="/explore" element={<Explore/>}></Route>
         </Routes>
       </Router>
     </>
