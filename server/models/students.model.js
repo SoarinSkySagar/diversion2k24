@@ -1,5 +1,6 @@
 const studentModel = require('./students.mongo')
 const bcrypt = require('bcrypt')
+const {getEmailUsername} = require('../services/userid')
 
 async function studentEmailExists(email) {
     try {
@@ -9,6 +10,16 @@ async function studentEmailExists(email) {
       console.error('Error checking email existence:', error);
       throw error;
     }
+}
+
+async function studentIDExists(userid) {
+  try {
+    const student = await studentModel.findOne({ userid });
+    return !!student;
+  } catch (error) {
+    console.error('Error checking email existence:', error);
+    throw error;
+  }
 }
 
 async function registerStudent(email, password) {
@@ -21,6 +32,7 @@ async function registerStudent(email, password) {
       const newStudent = new studentModel({
         email,
         password: hashedPassword,
+        userid: getEmailUsername(email)
       });
 
       await newStudent.save();
@@ -129,6 +141,41 @@ async function getStudent(email) {
   }
 }
 
+async function addRoomToSDms(userid, room) {
+  try {
+    const user = await studentModel.findOne({ userid });
+
+    if (user) {
+      user.dms.push(room);
+
+      await user.save();
+      return true;
+    } else {
+      console.log(`User with userid ${userid} not found`);
+      return false;
+    }
+  } catch (error) {
+    console.error('Error updating dms array:', error);
+    throw error;
+  }
+}
+
+async function getSDmsByUsername(username) {
+  try {
+    const user = await studentModel.findOne({ userid: username });
+
+    if (user) {
+      return user.dms;
+    } else {
+      console.log(`User with username ${username} not found`);
+      return null;
+    }
+  } catch (error) {
+    console.error('Error retrieving dms array:', error);
+    throw error;
+  }
+}
+
 module.exports = {
   studentEmailExists,
   registerStudent,
@@ -136,5 +183,8 @@ module.exports = {
   updateStudentData,
   deleteStudent,
   isStudentComplete,
-  getStudent
+  getStudent,
+  addRoomToSDms,
+  getSDmsByUsername,
+  studentIDExists
 }

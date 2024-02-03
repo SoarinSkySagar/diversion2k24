@@ -1,5 +1,6 @@
 const teacherModel = require('./teachers.mongo')
 const bcrypt = require('bcrypt')
+const {getEmailUsername} = require('../services/userid')
 
 async function teacherEmailExists(email) {
     try {
@@ -9,6 +10,16 @@ async function teacherEmailExists(email) {
       console.error('Error checking email existence:', error);
       throw error;
     }
+}
+
+async function teacherIDExists(userid) {
+  try {
+    const teacher = await teacherModel.findOne({ userid });
+    return !!teacher;
+  } catch (error) {
+    console.error('Error checking email existence:', error);
+    throw error;
+  }
 }
 
 async function registerTeacher(email, password) {
@@ -21,6 +32,7 @@ async function registerTeacher(email, password) {
       const newTeacher = new teacherModel({
         email,
         password: hashedPassword,
+        userid: getEmailUsername(email)
       });
 
       await newTeacher.save();
@@ -129,6 +141,16 @@ async function getTeacher(email) {
   }
 }
 
+async function getTeacherByID(id) {
+  try {
+    const teacher = await teacherModel.findOne({userid: id})
+    return teacher
+  } catch(err) {
+    console.error('Error getting student:', err);
+    throw err;
+  }
+}
+
 async function getAllTeachers(location, minRating, teacherClass) {
   try {
     let query = {};
@@ -154,6 +176,41 @@ async function getAllTeachers(location, minRating, teacherClass) {
   }
 }
 
+async function addRoomToTDms(userid, room) {
+  try {
+    const user = await teacherModel.findOne({ userid });
+
+    if (user) {
+      user.dms.push(room);
+
+      await user.save();
+      return true;
+    } else {
+      console.log(`User with userid ${userid} not found`);
+      return false;
+    }
+  } catch (error) {
+    console.error('Error updating dms array:', error);
+    throw error;
+  }
+}
+
+async function getTDmsByUsername(username) {
+  try {
+    const user = await teacherModel.findOne({ userid: username });
+
+    if (user) {
+      return user.dms;
+    } else {
+      console.log(`User with username ${username} not found`);
+      return null;
+    }
+  } catch (error) {
+    console.error('Error retrieving dms array:', error);
+    throw error;
+  }
+}
+
 module.exports = {
   teacherEmailExists,
   registerTeacher,
@@ -162,5 +219,9 @@ module.exports = {
   deleteTeacher,
   isTeacherComplete,
   getTeacher,
-  getAllTeachers
+  getAllTeachers,
+  getTeacherByID,
+  addRoomToTDms,
+  getTDmsByUsername,
+  teacherIDExists
 };

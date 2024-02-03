@@ -14,7 +14,7 @@ app.use(session({
     secret: 'your-secret-key',
     resave: true,
     saveUninitialized: true,
-  }));
+}));
 
 app.use(flash());
 app.use(passport.initialize())
@@ -56,6 +56,15 @@ app.get('/profile', (req, res) => {
   }
 });
 
+app.get('/profile/:query', (req, res) => {
+  if (req.isAuthenticated()) {
+    const query = req.params.query;
+    res.status(200).json({[query]: req.user[query]})
+  } else {
+    res.status(403).json({error: "You are not logged in!"})
+  }
+})
+
 app.get('/dashboard', async (req, res) => {
   if (req.user) {
     try {
@@ -74,6 +83,8 @@ app.get('/dashboard', async (req, res) => {
         req.user.username = result.username
         req.user.phone = result.phone
         req.user.location = result.location
+        req.user.userid = result.userid
+        req.user.dms = result.dms
 
 
 
@@ -189,9 +200,9 @@ app.get('/teacher', async (req, res) => {
 
 app.get('/teacher/:username', async (req, res) => {
   try {
-    if (req.user.type === 'student') {
+    if (req.isAuthenticated() && req.user.type === 'student') {
       const requestedUsername = req.params.username;
-      const teacher = await teacherFuncs.getTeacher(`${requestedUsername}@gmail.com`);
+      const teacher = await teacherFuncs.getTeacherByID(requestedUsername)
       console.log(requestedUsername)
       if (teacher) {
         const teacherDetails = {
@@ -217,5 +228,8 @@ app.get('/teacher/:username', async (req, res) => {
   }
 });
 
+const chatRouter = require('./routes/chat.router')
+
+app.use('/', chatRouter)
 
 module.exports = app

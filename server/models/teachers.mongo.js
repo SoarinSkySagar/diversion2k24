@@ -42,7 +42,15 @@ const Teacher = new mongoose.Schema({
     },
     phone: {
         type: Number
-    }
+    },
+    userid: {
+        type: String,
+        required: true
+    },
+    dms: {
+        type: [String],
+        default: [],
+    },
 });
 
 const teacherModel = mongoose.model('Teacher', Teacher);

@@ -33,8 +33,15 @@ const Student = new mongoose.Schema({
     },
     phone: {
         type: Number
-    }
-
+    },
+    userid: {
+        type: String,
+        required: true
+    },
+    dms: {
+        type: [String],
+        default: [],
+    },
 });
 
 const studentModel = mongoose.model('Student', Student);
