@@ -3,7 +3,6 @@ const mongoose = require('mongoose');
 const Teacher = new mongoose.Schema({
     username:{
         type:String,
-        // required:true
     },
     email:{
         type:String,
@@ -51,6 +50,14 @@ const Teacher = new mongoose.Schema({
         type: [String],
         default: [],
     },
+    requests: {
+        type: [String],
+        default: [],
+    }, 
+    students: {
+        type: [String],
+        default: [],
+    }
 });
 
 const teacherModel = mongoose.model('Teacher', Teacher);

@@ -176,6 +176,61 @@ async function getSDmsByUsername(username) {
   }
 }
 
+async function getTeachersList(studentEmail) {
+  try {
+    const student = await studentModel.findOne({ email: studentEmail });
+    if (!student) {
+        throw new Error('Student not found');
+    }
+
+    const teachers = student.teachers || [];
+    return teachers;
+  } catch(err) {
+
+  }
+}
+
+async function getRequestsByEmail(studentEmail) {
+  try {
+      const student = await studentModel.findOne({ email: studentEmail });
+      if (!student) {
+          throw new Error('student not found');
+      }
+
+      const requests = student.requests || [];
+      return requests;
+  } catch (error) {
+      console.error('Error getting requests:', error);
+      throw error;
+  }
+}
+
+async function createRequest(teacher, studentEmail) {
+  try {
+    const student = await studentModel.findOne({ email: studentEmail });
+
+    if (!student) {
+      throw new Error('Student not found');
+    }
+
+    const teacherr = await teacherModel.findOne({ email: teacher });
+    if (!teacherr) {
+      throw new Error('Teacher not found');
+    }
+
+    teacherr.requests.push(studentEmail)
+
+    student.requests.push(teacher);
+
+    await student.save();
+    await teacherr.save();
+  } catch(err) {
+    console.error('Error creating request:', err);
+    throw err;
+  
+  }
+}
+
 module.exports = {
   studentEmailExists,
   registerStudent,
@@ -186,5 +241,8 @@ module.exports = {
   getStudent,
   addRoomToSDms,
   getSDmsByUsername,
-  studentIDExists
+  studentIDExists,
+  getTeachersList,
+  getRequestsByEmail,
+  createRequest
 }
