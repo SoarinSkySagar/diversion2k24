@@ -29,6 +29,8 @@ function App() {
           <Route path="/fgt" element={<ForgotPassword />}></Route>
           <Route path="/dash" element={<Dashboard/>}></Route>
           <Route path="/select" element={<SelectPage/>}></Route>
+          <Route path="/supdate" element={<StudentDetails/>}></Route>
+          <Route path="/tupdate" element={<TeacherDetails/>}></Route>
         </Routes>
       </Router>
     </>

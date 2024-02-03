@@ -13,11 +13,11 @@ export default function TeacherDetails() {
   return (
     <section>
       <h1 className="text-3xl text-center my-6 font-bold">Student Details</h1>
-      <form className="flex flex-col gap-4 justify-center flex-wrap max-w-md m-auto px-6 py-12">
+      <form action="/scomplete" method="post" className="flex flex-col gap-4 justify-center flex-wrap max-w-md m-auto px-6 py-12">
         <h1 className=" font-semibold text-white text-lg">Username</h1>
         <input
           type="text"
-          id="name"
+          id="username" name="username"
           value={name}
           // disabled={!changeDetail}
           // onChange={onChange}
@@ -28,7 +28,7 @@ export default function TeacherDetails() {
         <input
           placeholder="Number"
           value={number}
-          required
+          required id="phone" name="phone"
           min={1000000000}
           max={10000000000}
           // onChange={(e) => setNumber(e.target.value)}
@@ -38,7 +38,8 @@ export default function TeacherDetails() {
         <h1 className=" font-semibold text-white text-lg">Location</h1>
         <input
           type="text"
-          id="name"
+          
+          id="location" name="location"
           // value={name}
           // disabled={!changeDetail}
           // onChange={onChange}
@@ -47,8 +48,9 @@ export default function TeacherDetails() {
         />
         <h1 className=" font-semibold text-white text-lg">Standard</h1>
         <select
-          id="dropdown"
+          
           value={selectedQualification}
+          id="studentClass" name="studentClass"
           onChange={handleQualification}
           className="w-full px-4 py-2 text-xl text-black bg-white rounded-xl border-none transition ease-in-out"
         >

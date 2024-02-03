@@ -102,19 +102,8 @@ app.get('/dashboard', async (req, res) => {
   } else {
     res.redirect('/auth');
   }
-})
+})  
 
-app.get('/select', (req, res) => {
-  res.sendFile(path.join(__dirname, 'public', 'selection.html'))
-})
-
-app.get('/supdate', (req, res) => {
-  res.sendFile(path.join(__dirname, 'public', 'supdate.html'))
-})
-
-app.get('/tupdate', (req, res) => {
-  res.sendFile(path.join(__dirname, 'public', 'tupdate.html'))
-})
 
 app.post('/scomplete', async (req, res) => {
   const { username, phone, location, class: studentClass} = req.body;
