@@ -90,7 +90,8 @@ app.get('/dashboard', async (req, res) => {
 
 
 
-        res.send(`You are logged in. Email: ${req.user.email}. Data complete.`);
+        // res.send(`You are logged in. Email: ${req.user.email}. Data complete.`);
+        res.redirect('/dash')
       } else {
         res.redirect('/select');
       }
