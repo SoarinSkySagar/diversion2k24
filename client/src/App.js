@@ -5,6 +5,7 @@ import SignUp from "./pages/SignUp";
 import ForgotPassword from "./pages/ForgotPassword";
 import Profile from "./pages/Profile";
 import Header from "./components/Header";
+import SelectPage from "./pages/SelectPage";
 
 function App() {
   return (
@@ -17,6 +18,7 @@ function App() {
           <Route path="/Sign-Up" element={<SignUp />}></Route>
           <Route path="/Profile" element={<Profile />}></Route>
           <Route path="/Forgot-Password" element={<ForgotPassword />}></Route>
+          <Route path="/select" element={<SelectPage/>}></Route>
         </Routes>
       </Router>
     </>
