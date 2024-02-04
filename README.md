@@ -20,10 +20,21 @@ Tutorshala provides university people with a side hustle, so that they may get e
 ## Installation:
 To use Tutorshala , follow these steps:
 
-1. Open any terminal
-2. Clone the repository: 
+1. *Open any terminal*
+2. *Clone the repository:* 
 3. git clone https://github.com/SoarinSkySagar/diversion2k24.git
-4. change directory : cd diversion2k24
+4. *Install dependencies for the project* 
+5. cd diversion2k24
+6. cd client && npm install
+7. cd ../server && npm install
+8. *Set up environment variables:Create a `.env` file in the `server` directory and add the following variables:*
+9. PORT=5000
+10. MONGODB_URI=<your url>
+11. JWT_SECRET=your_secret_key
+12. *Start the development servers:*
+13. cd client && npm start
+14. cd ../server && npm start
+15. *Open -* http://localhost:3000 *in your web browser to access the application.*
 
 
 ## Usage:
@@ -32,7 +43,7 @@ To use Tutorshala , follow these steps:
 ## Contributing:
 We welcome contributions from the community. If you'd like to contribute to Tutorshala, please follow these guidelines:
 
-1. Fork the repository:
+1. Fork the repository
 2. Create your feature branch: git checkout -b feature/YourFeature
 3. Commit your changes: git commit -am 'Add some feature'
 4. Push to the branch: git push origin feature/YourFeature
