@@ -35,6 +35,6 @@ This project is licensed under the MIT License. See the [LICENSE](LICENSE) file 
 ## Contact:
 If you have any questions or feedback, feel free to contact the project maintainers :
 
-Sagar Rana 
-Sk Md Rizwan
-Ekam Bitt
+1. Sagar Rana 
+2. Sk Md Rizwan
+3. Ekam Bitt
