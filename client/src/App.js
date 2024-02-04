@@ -11,10 +11,11 @@ import SelectPage from "./pages/SelectPage";
 import Dashboard from "./pages/Dashboard";
 import Chat from "./pages/Chat";
 import Explore from "./pages/Explore";
+import { ChakraProvider } from '@chakra-ui/react'
 
 function App() {
   return (
-    <>
+    <ChakraProvider>
       <Router>
       <Header />
         <Routes>
@@ -38,7 +39,7 @@ function App() {
           <Route path="/chat" element={<Chat/>}></Route>
         </Routes>
       </Router>
-    </>
+    </ChakraProvider>
   );
 }
 
