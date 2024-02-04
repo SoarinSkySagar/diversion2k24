@@ -1,11 +1,14 @@
-import React from "react";
+import React from 'react';
+import HomeHeader from '../components/HomeHeader';
+import HomeCarousel from '../components/HomeCarousal';
 
 export default function Home() {
   return (
-    <div>
-      <div>
-      <h1 className="text-3xl text-center mt-6 font-bold">Home</h1>
-      </div>
-    </div>
-  );
+    <>
+      <HomeHeader/>
+
+        <HomeCarousel/>
+
+    </>
+  )
 }
