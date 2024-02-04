@@ -1,7 +1,7 @@
 Tutorshala
 
 Description:
-Diversion2k24 is a [describe your project here briefly].
+Tutorshala 
 
 Features:
 Feature 1
@@ -9,17 +9,19 @@ Feature 2
 Feature 3
 
 Installation:
-To use Diversion2k24, follow these steps:
+To use Tutorshala , follow these steps:
 
+Open any terminal
 Clone the repository: 
 git clone https://github.com/SoarinSkySagar/diversion2k24.git
-[Add any specific installation instructions here]
+change directory : cd diversion2k24
+
 
 Usage:
 [Provide instructions on how to use your project. Include examples and/or screenshots if applicable.]
 
 Contributing:
-We welcome contributions from the community. If you'd like to contribute to Diversion2k24, please follow these guidelines:
+We welcome contributions from the community. If you'd like to contribute to Tutorshala, please follow these guidelines:
 
 Fork the repository:
 Create your feature branch: git checkout -b feature/YourFeature
@@ -31,7 +33,7 @@ License:
 [Include information about the license of your project. For example, MIT License, Apache License, etc.]
 
 Contact:
-If you have any questions or feedback, feel free to contact the project maintainer:
+If you have any questions or feedback, feel free to contact the project maintainers :
 
 Sagar Rana 
 Sk Md Rizwan
