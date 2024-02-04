@@ -29,7 +29,7 @@ To use Tutorshala , follow these steps:
 7. cd ../server && npm install
 8. *Set up environment variables:Create a `.env` file in the `server` directory and add the following variables:*
 9. PORT=5000
-10. MONGODB_URI=<your url>
+10. MONGODB_URI=your_secret_url
 11. JWT_SECRET=your_secret_key
 12. *Start the development servers:*
 13. cd client && npm start
