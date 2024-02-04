@@ -1,7 +1,7 @@
-Tutorshala
+## Tutorshala - your one stop platform to all private tutions
 
 ## Description:
-Tutorshala 
+Tutorshala provides university people with a side hustle, so that they may get extra income. We have seen how some people opt to give private tutions to some school students either by going to their houses to teach or having batches of student come to their place. This will allow people to sign up as either students or teachers. For new teachers, they whave to give a mandatory assessment test and to be selected as a verified tutor of a particular subject, they have to pass that subject's assessment. Questions will be subjective and the answers will be checked by AI. Students are allowed to choose teachers around their area on a map, where closest teachers can be seen and sent a request to become their teacher. There is a chat feature too for students and teachers.
 
 ## Features:
 Find tested and evaluated teachers 
