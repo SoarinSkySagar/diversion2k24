@@ -9,6 +9,7 @@ import StudentDetails from "./pages/StudentDetails";
 import TeacherDetails from "./pages/TeacherDetails";
 import SelectPage from "./pages/SelectPage";
 import Dashboard from "./pages/Dashboard";
+import Chat from "./pages/Chat";
 
 function App() {
   return (
@@ -28,6 +29,7 @@ function App() {
           <Route path="/profile" element={<Profile />}></Route>
           <Route path="/fgt" element={<ForgotPassword />}></Route>
           <Route path="/dash" element={<Dashboard/>}></Route>
+          <Route path="/chat" element={<Chat/>}></Route>
           <Route path="/select" element={<SelectPage/>}></Route>
         </Routes>
       </Router>
