@@ -1,6 +1,6 @@
-"use client";
 import React, { useEffect, useState, useRef } from "react";
-// import supabase from "../../utils/client";
+import io from "socket.io-client";
+
 import dayjs from "dayjs";
 import utc from "dayjs/plugin/utc"; // import utc plugin
 import relativeTime from "dayjs/plugin/relativeTime";
@@ -9,12 +9,33 @@ import Message from "../components/Message";
 // import Script from "next/script";
 
 function Chat() {
-  const [messages, setMessages] = useState([{ id: 1, text: "Welcome Here!" }]);
+  const [messages, setMessages] = useState([]);
   const [text, setText] = useState("");
   const [userName, setUserName] = useState(
     `user${Math.floor(Math.random() * 100000)}`
   );
   const chatbox = useRef(null);
+  const socket = useRef(null);
+
+  useEffect(() => {
+    // Connect to the Socket.IO server
+    socket.current = io('/chat');
+
+    // Event listener for receiving chat messages
+    socket.current.on('chatMessage', (data) => {
+      setMessages((prevMessages) => [...prevMessages, data]);
+    });
+
+    // Event listener for receiving chat history
+    socket.current.on('chatHistory', (chatHistory) => {
+      setMessages(chatHistory);
+    });
+
+    // Cleanup when the component is unmounted
+    return () => {
+      socket.current.disconnect();
+    };
+  }, []);
 
   useEffect(() => {
     if (chatbox.current) {
@@ -26,31 +47,6 @@ function Chat() {
   dayjs.extend(utc);
   dayjs.extend(relativeTime);
 
-  const handleSubmit = async (e) => {
-    e.preventDefault();
-
-    try {
-      const dataMsg = text;
-      if (!dataMsg || dataMsg === "") return alert("Please enter a message!");
-      //   const { error } = await supabase.from("messages").insert([
-      //     {
-      //       text: dataMsg,
-      //       username: userName,
-      //     },
-      //   ]);
-      //   if (error) {
-      //     console.error(error.message);
-      //     return;
-      //   }
-      console.log("Successfully sent!");
-      // chatbox.current.scrollIntoView({ behavior: "smooth", block: "end" });
-    } catch (error) {
-      console.log("error sending message:", error);
-    } finally {
-      setText("");
-    }
-  };
-
   useEffect(() => {
     if (localStorage.getItem("userName"))
       setUserName(localStorage.getItem("userName"));
@@ -58,74 +54,42 @@ function Chat() {
     console.log(messages);
   }, []);
 
-  const handleUserNameChange = async (e) => {
+  const handleSubmit = () => {
+    if (text.trim() !== '') {
+      socket.current.emit('chatMessage', { message: text, sender: userName });
+      setText('');
+    }
+  };
+
+  const handleUserNameChange = (e) => {
     setUserName(e.target.value);
     localStorage.setItem("userName", e.target.value);
-  };
+  };;
 
   return (
     <div className="p-2 w-screen flex justify-start items-center h-screen flex-col space-y-4">
-      <h1 className="text-3xl text-center mt-6 font-bold">Chat</h1>
-      <div className="w-full text-center space-x-2"></div>
-      <div className="text-2xl font-semibold mt-12 flex items-center">
-        All Messages :{/* <LiveCounter count={messages.length} /> */}
-      </div>
-      <div className="lg:px-24 w-full space-y-4">
-        <div
-          className="w-full h-96 p-2 pt-4 rounded-xl ring-1 overflow-y-scroll flex flex-col justify-center items-star bg-t"
-          ref={chatbox}
-        >
-          {messages.length !== 0 ? (
-            messages.map((message, index) => (
-              <>
-                <div className="my-2" key={index}>
-                  <Message
-                    text={message.text}
-                    time={dayjs.utc(message.timestamp).fromNow()}
-                    username={message.username}
-                  />
-                </div>
-              </>
-            ))
-          ) : (
-            <>
-              <div className="w-full h-full flex justify-center items-center">
-                <h1>Welcome To Chat App!</h1>
-              </div>
-            </>
-          )}
-        </div>
-        <div className="flex space-x-3 w-full lg:px-32 justify-center">
-          <input
-            type="text"
-            className="ring-1 rounded-2xl  w-full px-3"
-            placeholder="Type your message here..."
-            value={text}
-            onKeyDown={(e) => (e.key === "Enter" ? handleSubmit(e) : null)}
-            onChange={(e) => setText(e.target.value)}
-          />
-
-          <button type="submit" onClick={handleSubmit}>
-            <div class="w-fit rounded-full bg-green-600 p-3 shadow-2xl drop-shadow-xl backdrop-blur-lg">
-              <svg
-                xmlns="http://www.w3.org/2000/svg"
-                width="24"
-                height="24"
-                viewBox="0 0 24 24"
-                fill="none"
-                stroke="currentColor"
-                stroke-width="2"
-                stroke-linecap="round"
-                stroke-linejoin="round"
-                class="lucide lucide-send text-white"
-              >
-                <path d="m22 2-7 20-4-9-9-4Z" />
-                <path d="M22 2 11 13" />
-              </svg>
+      {/* ... rest of your component ... */}
+      <div
+        className="w-full h-96 p-2 pt-4 rounded-xl ring-1 overflow-y-scroll flex flex-col justify-center items-star bg-t"
+        ref={chatbox}
+      >
+        {messages.length !== 0 ? (
+          messages.map((message, index) => (
+            <div className="my-2" key={index}>
+              <Message
+                text={message.message}
+                time={dayjs.utc(message.timestamp).fromNow()}
+                username={message.sender}
+              />
             </div>
-          </button>
-        </div>
+          ))
+        ) : (
+          <div className="w-full h-full flex justify-center items-center">
+            <h1>Welcome To Chat App!</h1>
+          </div>
+        )}
       </div>
+      {/* ... rest of your component ... */}
     </div>
   );
 }

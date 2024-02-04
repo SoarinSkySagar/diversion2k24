@@ -185,7 +185,7 @@ const Explore = () => {
   return (
     <>
       {/* <Navbar /> */}
-      <div class=" bg-black w-full flex justify-around">
+      <div class=" bg-blue-800 w-full flex justify-around">
         <div class="bg-slate-200 w-1/3 h-screen flex flex-col shadow-xl overflow-y-scroll">
           <div class="bg-white p-5 rounded-lg w-full mb-2 h-fit flex justify-center font-semibold text-xl sticky top-0 shadow-xl">
             Nearby Tutors

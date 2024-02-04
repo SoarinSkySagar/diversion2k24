@@ -3,8 +3,10 @@ import Benefits from "../components/Benefits";
 import Testimonial from "../components/TestimonialMain";
 import ContactForm from "../components/ContactForm";
 
+
 const Hero = () => {
   return (
+
     <div>
       <div id="home" className="relative -mt-20 h-screen">
         <img
@@ -31,3 +33,4 @@ const Hero = () => {
 };
 
 export default Hero;
+
