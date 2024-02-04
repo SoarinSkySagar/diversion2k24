@@ -29,8 +29,8 @@ Commit your changes: git commit -am 'Add some feature'
 Push to the branch: git push origin feature/YourFeature
 Submit a pull request
 
-License:
-[Include information about the license of your project. For example, MIT License, Apache License, etc.]
+## License:
+This project is licensed under the MIT License. See the [LICENSE](LICENSE) file for details.
 
 Contact:
 If you have any questions or feedback, feel free to contact the project maintainers :
