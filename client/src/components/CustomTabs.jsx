@@ -13,8 +13,10 @@ export default function CustomTabs() {
     <div>
       <Tabs isFitted position="relative" variant="unstyled">
         <TabList>
-          <Tab className="text-[#221389]  lg:text-xl">FOR STUDENTS</Tab>
-          <Tab className="text-[#221389]  lg:text-xl">FOR TUTORS</Tab>
+          <Tab className="text-[#221389] font-bold lg:text-2xl">FOR TUTORS</Tab>
+          <Tab className="text-[#221389] font-bold lg:text-2xl">
+            FOR STUDENTS
+          </Tab>
         </TabList>
         <TabIndicator
           mt="-1.5px"
@@ -28,15 +30,57 @@ export default function CustomTabs() {
               <ul className="flex flex-col gap-3 list-disc lg:text-xl">
                 <li>
                   <span className="text-black not-italic font-normal leading-[148.5%] tracking-[1.875px] uppercase">
-                    Early Detection:
+                    Flexible Schedule:
                   </span>
                   <span className="text-[#221389] not-italic font-normal leading-[148.5%] tracking-[1.875px]">
-                    AI/ML enables early skin condition identification, enhancing
-                    treatment success and reducing complications.
+                    Tutors can choose convenient time slots, allowing them to
+                    balance part-time tutoring with their college commitments.
                   </span>
                 </li>
 
-                
+                <li>
+                  <span className="text-black not-italic font-normal leading-[148.5%] tracking-[1.875px] uppercase">
+                    Skill Enhancement:
+                  </span>
+                  <span className="text-[#221389] not-italic font-normal leading-[148.5%] tracking-[1.875px]">
+                    Teaching younger students hones communication and mentoring
+                    skills, contributing to personal and professional
+                    development.
+                  </span>
+                </li>
+
+                <li>
+                  <span className="text-black not-italic font-normal leading-[148.5%] tracking-[1.875px] uppercase">
+                    Extra Income:
+                  </span>
+                  <span className="text-[#221389] not-italic font-normal leading-[148.5%] tracking-[1.875px]">
+                    Tutors can earn additional income while utilizing their
+                    academic expertise, providing financial benefits during
+                    their college years.
+                  </span>
+                </li>
+
+                <li>
+                  <span className="text-black not-italic font-normal leading-[148.5%] tracking-[1.875px] uppercase">
+                    Community Impact:
+                  </span>
+                  <span className="text-[#221389] not-italic font-normal leading-[148.5%] tracking-[1.875px]">
+                    Contributing to the educational growth of neighboring kids
+                    fosters a sense of community and social responsibility among
+                    the tutors.
+                  </span>
+                </li>
+
+                <li>
+                  <span className="text-black not-italic font-normal leading-[148.5%] tracking-[1.875px] uppercase">
+                    Portfolio Building:
+                  </span>
+                  <span className="text-[#221389] not-italic font-normal leading-[148.5%] tracking-[1.875px]">
+                    Tutoring experience adds value to resumes, showcasing a
+                    commitment to education and the ability to explain complex
+                    concepts.
+                  </span>
+                </li>
               </ul>
             </div>
           </TabPanel>
@@ -44,52 +88,56 @@ export default function CustomTabs() {
             <div>
               <ul className="flex flex-col gap-3 list-disc lg:text-xl">
                 <li>
-                  <span className="text-white not-italic font-normal leading-[148.5%] tracking-[1.875px] uppercase">
-                    Enhanced Accuracy:
+                  <span className="text-black not-italic font-normal leading-[148.5%] tracking-[1.875px] uppercase">
+                    Personalized Learning:
                   </span>
                   <span className="text-[#221389] not-italic font-normal leading-[148.5%] tracking-[1.875px]">
-                    These models improve diagnostic accuracy, reducing the risk
-                    of errors.
+                    Students receive individual attention, allowing for
+                    personalized learning experiences tailored to their specific
+                    needs and pace.
                   </span>
                 </li>
 
                 <li>
-                  <span className="text-white not-italic font-normal leading-[148.5%] tracking-[1.875px] uppercase">
-                    Efficient Workflow:
+                  <span className="text-black not-italic font-normal leading-[148.5%] tracking-[1.875px] uppercase">
+                    Academic Support:
                   </span>
                   <span className="text-[#221389] not-italic font-normal leading-[148.5%] tracking-[1.875px]">
-                    Dermatologists can focus on complex cases, while routine
-                    ones are handled by AI, saving time.
+                    Tutors offer assistance with challenging subjects, enhancing
+                    understanding and boosting overall academic performance.
                   </span>
                 </li>
 
                 <li>
-                  <span className="text-white not-italic font-normal leading-[148.5%] tracking-[1.875px] uppercase">
-                    Informed Decisions:
+                  <span className="text-black not-italic font-normal leading-[148.5%] tracking-[1.875px] uppercase">
+                    Mentorship:
                   </span>
                   <span className="text-[#221389] not-italic font-normal leading-[148.5%] tracking-[1.875px]">
-                    Historical data analysis helps identify trends and informs
-                    treatment decisions.
+                    Students benefit from mentorship, gaining insights into
+                    effective study habits, time management, and educational
+                    pathways.
                   </span>
                 </li>
 
                 <li>
-                  <span className="text-white not-italic font-normal leading-[148.5%] tracking-[1.875px] uppercase">
-                    Up-to-Date Insights:
+                  <span className="text-black not-italic font-normal leading-[148.5%] tracking-[1.875px] uppercase">
+                    Confidence Building:
                   </span>
                   <span className="text-[#221389] not-italic font-normal leading-[148.5%] tracking-[1.875px]">
-                    AI/ML models continuously learn from new cases and research,
-                    keeping doctors informed.
+                    Successful tutoring experiences contribute to increased
+                    confidence, empowering students to tackle academic
+                    challenges independently.
                   </span>
                 </li>
 
                 <li>
-                  <span className="text-white not-italic font-normal leading-[148.5%] tracking-[1.875px] uppercase">
-                    Expanded Reach:
+                  <span className="text-black not-italic font-normal leading-[148.5%] tracking-[1.875px] uppercase">
+                    Access to Resources:
                   </span>
                   <span className="text-[#221389] not-italic font-normal leading-[148.5%] tracking-[1.875px]">
-                    Scalable AI/ML can handle many patients, broadening access
-                    to care.
+                    Tutors can share supplementary materials and resources,
+                    providing students with valuable study aids and reference
+                    materials.
                   </span>
                 </li>
               </ul>
