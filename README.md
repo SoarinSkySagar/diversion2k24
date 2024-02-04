@@ -36,13 +36,9 @@ To use Tutorshala , follow these steps:
 14. cd ../server && npm start
 15. *Open -* http://localhost:3000 *in your web browser to access the application.*
 
-
-## Usage:
-[Provide instructions on how to use your project. Include examples and/or screenshots if applicable.]
-
 ## Technologies Used
 
-- Frontend: React.js, HTML5, CSS3,Material-UI
+- Frontend: React.js,Tailwind CSS,Material-UI
 - Backend: Node.js, Express.js, MongoDB,Twilio Rest API
 - Map Integration: Mapbox SDK
 - Real-time Communication: Socket.IO
