@@ -34,7 +34,7 @@ export default function Dashboard() {
             </div>
         </div>
 
-        <div className='col-span-1 row-span-2 rounded-2xl overflow-hidden cursor-pointer' style={{backgroundImage:"url('/map.png')", backgroundSize: "cover", backgroundPosition: "center", height: "100%"}}>
+        <div className='col-span-1 row-span-2 rounded-2xl overflow-hidden cursor-pointer' style={{backgroundImage:"url('/map.png')", backgroundSize: "cover", backgroundPosition: "center", height: "100%"}} onClick={() => {window.location.href='/explore'}}>
         <div className='bg-blue-600 min-w-max min-h-full bg-opacity-30 text-black font-semibold text-4xl flex items-center justify-center'>
         {/* <Link href="/dash/docfinder"> <MdOutlineHealthAndSafety/>Health Centres Nearby
       </Link> */}

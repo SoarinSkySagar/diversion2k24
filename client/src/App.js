@@ -35,6 +35,7 @@ function App() {
           <Route path="/supdate" element={<StudentDetails/>}></Route>
           <Route path="/tupdate" element={<TeacherDetails/>}></Route>
           <Route path="/explore" element={<Explore/>}></Route>
+          <Route path="/chat" element={<Chat/>}></Route>
         </Routes>
       </Router>
     </>
