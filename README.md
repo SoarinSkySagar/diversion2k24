@@ -20,7 +20,7 @@ change directory : cd diversion2k24
 Usage:
 [Provide instructions on how to use your project. Include examples and/or screenshots if applicable.]
 
-Contributing:
+## Contributing:
 We welcome contributions from the community. If you'd like to contribute to Tutorshala, please follow these guidelines:
 
 Fork the repository:
@@ -32,7 +32,7 @@ Submit a pull request
 ## License:
 This project is licensed under the MIT License. See the [LICENSE](LICENSE) file for details.
 
-Contact:
+## Contact:
 If you have any questions or feedback, feel free to contact the project maintainers :
 
 Sagar Rana 
