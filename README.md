@@ -29,8 +29,8 @@ To use Tutorshala , follow these steps:
 7. cd ../server && npm install
 8. *Set up environment variables:Create a `.env` file in the `server` directory and add the following variables:*
 9. PORT=5000
-10. MONGODB_URI=your_secret_url
-11. JWT_SECRET=your_secret_key
+10. MONGODB_URI=*your_secret_url*
+11. JWT_SECRET=*your_secret_key*
 12. *Start the development servers:*
 13. cd client && npm start
 14. cd ../server && npm start
@@ -39,6 +39,14 @@ To use Tutorshala , follow these steps:
 
 ## Usage:
 [Provide instructions on how to use your project. Include examples and/or screenshots if applicable.]
+
+## Technologies Used
+
+- Frontend: React.js, HTML5, CSS3,Material-UI
+- Backend: Node.js, Express.js, MongoDB,Twilio Rest API
+- Map Integration: Mapbox SDK
+- Real-time Communication: Socket.IO
+- Authentication: JSON Web Tokens (JWT)
 
 ## Contributing:
 We welcome contributions from the community. If you'd like to contribute to Tutorshala, please follow these guidelines:
