@@ -43,7 +43,6 @@ This project is licensed under the MIT License. See the [LICENSE](LICENSE) file 
 
 ## Contact:
 If you have any questions or feedback, feel free to contact the project maintainers :
-
-1. Sagar Rana 
-2. Sk Md Rizwan
-3. Ekam Bitt
+- **Sagar Rana** - *sagarrana.pvt@gmail.com*
+- **Sk Md Rizwan** - *skmdrizwan2003@gmail.com*
+- **Ekam Bitt** - *ekambitt@gmail.com*
