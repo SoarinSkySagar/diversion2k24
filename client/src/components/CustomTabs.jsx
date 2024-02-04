@@ -11,10 +11,12 @@ import {
 export default function CustomTabs() {
   return (
     <div>
-      <Tabs isFitted position="relative" variant="unstyled">
+      <Tabs isFitted position="relative" variant="styled">
         <TabList>
-          <Tab className="text-[#221389] font-bold lg:text-2xl">FOR TUTORS</Tab>
-          <Tab className="text-[#221389] font-bold lg:text-2xl">
+          <Tab className="text-[#221389] lg:text-2xl focus:outline-none focus:border-none focus:ring-2 focus:ring-[#221389] font-bold sm:font-semibold">
+            FOR TUTORS
+          </Tab>
+          <Tab className="text-[#221389] lg:text-2xl focus:outline-none focus:border-none focus:ring-2 focus:ring-[#221389] font-bold sm:font-semibold">
             FOR STUDENTS
           </Tab>
         </TabList>
