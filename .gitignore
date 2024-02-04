@@ -4,3 +4,4 @@
 /phone-verify/.env
 /phone-verify/node_modules
 /phone-verify/.gitignore
+.env
