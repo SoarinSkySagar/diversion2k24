@@ -1,0 +1,17 @@
+{
+  "name": "diversion2k24",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "server": "node server/server.js ",
+    "client": "npm run start --prefix=server",
+    "build-dev": "npm run build-dev --prefix=client",
+    "install-client": "npm i --prefix=client",
+    "install-server": "npm i -prefix=server"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC"
+}
