@@ -54,7 +54,7 @@ Search for Teachers
         <VscFeedback />
  Teacher Feedback
         </div>
-        <div className='col-span-1 row-span-1 rounded-2xl bg-orange-300 flex items-center justify-center text-black font-semibold text-4xl'>
+        <div className='col-span-1 row-span-1 rounded-2xl bg-orange-300 flex items-center justify-center text-black font-semibold text-4xl' onClick={() => {window.location.href='/chat'}}>
             <MdChat/>Chat
         </div> 
       </div>
