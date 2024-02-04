@@ -1,14 +1,14 @@
 Tutorshala
 
-Description:
+## Description:
 Tutorshala 
 
-Features:
-Feature 1
-Feature 2
-Feature 3
+## Features:
+Find tested and evaluated teachers 
+Chat directly with the teacher
+View your location distance from teacher/student while traveling
 
-Installation:
+## Installation:
 To use Tutorshala , follow these steps:
 
 Open any terminal
@@ -17,7 +17,7 @@ git clone https://github.com/SoarinSkySagar/diversion2k24.git
 change directory : cd diversion2k24
 
 
-Usage:
+## Usage:
 [Provide instructions on how to use your project. Include examples and/or screenshots if applicable.]
 
 ## Contributing:
