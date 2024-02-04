@@ -4,9 +4,18 @@
 Tutorshala provides university people with a side hustle, so that they may get extra income. We have seen how some people opt to give private tutions to some school students either by going to their houses to teach or having batches of student come to their place. This will allow people to sign up as either students or teachers. For new teachers, they whave to give a mandatory assessment test and to be selected as a verified tutor of a particular subject, they have to pass that subject's assessment. Questions will be subjective and the answers will be checked by AI. Students are allowed to choose teachers around their area on a map, where closest teachers can be seen and sent a request to become their teacher. There is a chat feature too for students and teachers.
 
 ## Features:
-1. Find tested and evaluated teachers 
-2. Chat directly with the teacher
-3. View your location distance from teacher/student while traveling
+- **Map View**: Easily find tutors in your area by browsing the interactive map.
+- **Chat Interface**: Communicate with tutors in real-time using the built-in chat feature.
+- **User Authentication**: Securely sign up and log in to your account to access personalized features.
+- **Tutor Profiles**: View detailed profiles of tutors, including their qualifications, subjects, availability, and reviews from other students.
+- **Search and Filter**: Search for tutors based on subjects, location, availability, and other criteria.
+- **Responsive Design**: Access Tutorshala on desktop, tablet, and mobile devices with a responsive user interface.
+- **Map View**: Easily find tutors in your area by browsing the interactive map.
+- **Chat Interface**: Communicate with tutors in real-time using the built-in chat feature.
+- **User Authentication**: Securely sign up and log in to your account to access personalized features.
+- **Tutor Profiles**: View detailed profiles of tutors, including their qualifications, subjects, availability, and reviews from other students.
+- **Search and Filter**: Search for tutors based on subjects, location, availability, and other criteria.
+- **Responsive Design**: Access Tutorshala on desktop, tablet, and mobile devices with a responsive user interface.
 
 ## Installation:
 To use Tutorshala , follow these steps:
