@@ -38,11 +38,12 @@ We welcome contributions from the community. If you'd like to contribute to Tuto
 4. Push to the branch: git push origin feature/YourFeature
 5. Submit a pull request
 
-## License:
-This project is licensed under the MIT License. See the [LICENSE](LICENSE) file for details.
-
 ## Contact:
 If you have any questions or feedback, feel free to contact the project maintainers :
 - **Sagar Rana** - *sagarrana.pvt@gmail.com*
 - **Sk Md Rizwan** - *skmdrizwan2003@gmail.com*
 - **Ekam Bitt** - *ekambitt@gmail.com*
+
+
+## License:
+This project is licensed under the MIT License. See the [LICENSE](LICENSE) file for details.
