@@ -22,7 +22,9 @@ export default function Header() {
   return (
     <div className=" bg-white border-b shadow-sm sticky top-0 z-40 py-2">
       <header className=" flex justify-between items-center px-3 max-w-6xl mx-auto">
-        <div className="font-bold cursor-pointer" onClick={() => navigate("/")}>Tutorशाला</div>
+        <div className="font-bold cursor-pointer" onClick={() => navigate("/")}>
+          Tutorशाला
+        </div>
         <div>
           <ul className="flex space-x-10">
             <li
@@ -34,6 +36,28 @@ export default function Header() {
               onClick={() => navigate("/")}
             >
               Home
+            </li>
+
+            <li
+              className={`py-3 cursor-pointer text-sm font-semibold ${
+                PathMatchRoute("/dash")
+                  ? "text-black border-b-red-600"
+                  : "text-gray-500 border-b-transparent"
+              }`}
+              onClick={() => navigate("/dash")}
+            >
+              Dashboard
+            </li>
+
+            <li
+              className={`py-3 cursor-pointer text-sm font-semibold ${
+                PathMatchRoute("/chat")
+                  ? "text-black border-b-red-600"
+                  : "text-gray-500 border-b-transparent"
+              }`}
+              onClick={() => navigate("/chat")}
+            >
+              Chat
             </li>
 
             <li

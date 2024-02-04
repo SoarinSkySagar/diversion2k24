@@ -27,7 +27,7 @@ const Hero = () => {
       </div>
       <Benefits />
       <Testimonial />
-      <ContactForm />
+      {/* <ContactForm /> */}
     </div>
   );
 };

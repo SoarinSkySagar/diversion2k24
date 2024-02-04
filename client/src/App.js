@@ -11,13 +11,13 @@ import SelectPage from "./pages/SelectPage";
 import Dashboard from "./pages/Dashboard";
 import Chat from "./pages/Chat";
 import Explore from "./pages/Explore";
-import { ChakraProvider } from '@chakra-ui/react'
+import { ChakraProvider } from "@chakra-ui/react";
 
 function App() {
   return (
-    <ChakraProvider>
+    <ChakraProvider classname="bg-[#DFC5FE]">
       <Router>
-      <Header />
+        <Header />
         <Routes>
           <Route path="/" element={<Home />}></Route>
           <Route path="/auth" element={<SignIn />}></Route>
@@ -26,21 +26,20 @@ function App() {
           <Route path="/StudentDetails" element={<StudentDetails />}></Route>
           <Route path="/Profile" element={<Profile />}></Route>
           <Route path="/Forgot-Password" element={<ForgotPassword />}></Route>
-          <Route path="/select" element={<SelectPage/>}></Route>
+          <Route path="/select" element={<SelectPage />}></Route>
           <Route path="/signup" element={<SignUp />}></Route>
           <Route path="/profile" element={<Profile />}></Route>
           <Route path="/fgt" element={<ForgotPassword />}></Route>
-          <Route path="/dash" element={<Dashboard/>}></Route>
-          <Route path="/chat" element={<Chat/>}></Route>
-          <Route path="/select" element={<SelectPage/>}></Route>
-          <Route path="/supdate" element={<StudentDetails/>}></Route>
-          <Route path="/tupdate" element={<TeacherDetails/>}></Route>
-          <Route path="/explore" element={<Explore/>}></Route>
-          <Route path="/chat" element={<Chat/>}></Route>
+          <Route path="/dash" element={<Dashboard />}></Route>
+          <Route path="/chat" element={<Chat />}></Route>
+          <Route path="/select" element={<SelectPage />}></Route>
+          <Route path="/supdate" element={<StudentDetails />}></Route>
+          <Route path="/tupdate" element={<TeacherDetails />}></Route>
+          <Route path="/explore" element={<Explore />}></Route>
         </Routes>
       </Router>
     </ChakraProvider>
   );
 }
 
-export default App
+export default App;
