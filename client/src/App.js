@@ -10,6 +10,7 @@ import TeacherDetails from "./pages/TeacherDetails";
 import SelectPage from "./pages/SelectPage";
 import Dashboard from "./pages/Dashboard";
 import Chat from "./pages/Chat";
+import Explore from "./pages/Explore";
 
 function App() {
   return (
@@ -31,6 +32,9 @@ function App() {
           <Route path="/dash" element={<Dashboard/>}></Route>
           <Route path="/chat" element={<Chat/>}></Route>
           <Route path="/select" element={<SelectPage/>}></Route>
+          <Route path="/supdate" element={<StudentDetails/>}></Route>
+          <Route path="/tupdate" element={<TeacherDetails/>}></Route>
+          <Route path="/explore" element={<Explore/>}></Route>
         </Routes>
       </Router>
     </>
